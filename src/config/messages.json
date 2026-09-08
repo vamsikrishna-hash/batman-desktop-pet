@@ -1,0 +1,27 @@
+{
+  "greeting": [
+    "Hi, how are you doing?",
+    "Hi, checking in.",
+    "Hi, still doing okay?"
+  ],
+  "water": [
+    "Hi, want some water?",
+    "Hi, water check.",
+    "Tiny water reminder."
+  ],
+  "stretch": [
+    "Hi, quick stretch?",
+    "Shoulders down. Tiny stretch?",
+    "Quick stretch break?"
+  ],
+  "break": [
+    "Hi, need a break?",
+    "Eyes off screen for a bit?",
+    "Small pause?"
+  ],
+  "mood": [
+    "How is work feeling?",
+    "Still doing okay?",
+    "Need a softer minute?"
+  ]
+}

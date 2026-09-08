@@ -1,0 +1,18 @@
+{
+  "name": "batman-desktop-pet",
+  "version": "1.0.0",
+  "description": "Batman, a transparent animated desktop AI pet built with Electron.",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "launch": "electron .",
+    "bring-on-screen": "electron . --reset-position",
+    "self-test": "electron --no-sandbox --headless --disable-gpu . --self-test",
+    "check": "node --check src/main.js && node --check src/core.js && node --check src/preload.js && node --check src/renderer/pet.js && node --check src/renderer/settings.js && node --check src/renderer/summon.js && node --check tests/e2e-sim.js",
+    "test": "npm run check && node tests/e2e-sim.js"
+  },
+  "devDependencies": {
+    "electron": "^32.3.3"
+  }
+}

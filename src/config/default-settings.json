@@ -1,0 +1,23 @@
+{
+  "petEnabled": true,
+  "visitFrequencyMinutes": 5,
+  "customVisitFrequencyMinutes": 5,
+  "waterFrequencyMinutes": 30,
+  "checkIns": true,
+  "sound": false,
+  "animationSpeed": 1,
+  "petSize": 180,
+  "aiChat": false,
+  "launchAtStartup": false,
+  "alwaysOnTop": true,
+  "quietHours": {
+    "enabled": false,
+    "start": "22:00",
+    "end": "08:00"
+  },
+  "summonPosition": null,
+  "lastVisitAt": 0,
+  "lastWaterAt": 0,
+  "tasks": [],
+  "taskReminderMinutes": 10
+}

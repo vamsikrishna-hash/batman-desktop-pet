@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Batman Settings</title>
+    <link rel="stylesheet" href="settings.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="../../assets/pet.svg" alt="">
+        <div>
+          <h1>Batman Settings</h1>
+          <p>Tune visits, reminders, quiet hours, size, and chat.</p>
+        </div>
+      </header>
+
+      <form id="settingsForm">
+        <label><input id="petEnabled" type="checkbox"> Enable pet</label>
+        <label><input id="checkIns" type="checkbox"> Check-ins</label>
+        <label><input id="sound" type="checkbox"> Sound</label>
+        <label><input id="aiChat" type="checkbox"> AI chat</label>
+        <label><input id="launchAtStartup" type="checkbox"> Launch when computer starts</label>
+        <label><input id="alwaysOnTop" type="checkbox"> Always on top</label>
+
+        <label>Visit frequency
+          <select id="visitFrequencyMinutes">
+            <option value="5">5 min</option>
+            <option value="10">10 min</option>
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="60">1 hour</option>
+            <option value="custom">Custom</option>
+          </select>
+        </label>
+        <label>Custom visit frequency, minutes
+          <input id="customVisitFrequencyMinutes" type="number" min="1" max="720">
+        </label>
+        <label>Water reminder frequency, minutes
+          <input id="waterFrequencyMinutes" type="number" min="1" max="720">
+        </label>
+        <label>Animation speed
+          <input id="animationSpeed" type="range" min="0.5" max="2" step="0.1">
+        </label>
+        <label>Pet size
+          <input id="petSize" type="range" min="120" max="280" step="10">
+        </label>
+        <label>OpenAI API key
+          <input id="apiKey" type="password" placeholder="Leave blank to keep existing key">
+        </label>
+
+        <fieldset>
+          <legend>Tasks</legend>
+          <label>Task reminder frequency, minutes
+            <input id="taskReminderMinutes" type="number" min="1" max="720">
+          </label>
+          <div id="taskList" class="task-list"></div>
+          <div class="task-add">
+            <input id="newTask" type="text" placeholder="Add a task" autocomplete="off">
+            <button type="button" id="addTaskBtn">Add</button>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Quiet hours</legend>
+          <label><input id="quietEnabled" type="checkbox"> Enable quiet hours</label>
+          <label>Start <input id="quietStart" type="time"></label>
+          <label>End <input id="quietEnd" type="time"></label>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit">Save</button>
+          <button type="button" id="pause30">Pause 30 min</button>
+          <button type="button" id="pause60">Pause 1 hour</button>
+          <button type="button" id="pauseTomorrow">Pause until tomorrow</button>
+          <button type="button" id="resume">Resume</button>
+        </div>
+
+        <p id="status"></p>
+      </form>
+    </main>
+    <script src="settings.js"></script>
+  </body>
+</html>

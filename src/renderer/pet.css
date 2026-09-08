@@ -1,0 +1,194 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  user-select: none;
+}
+
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.pet {
+  position: absolute;
+  right: 22px;
+  bottom: 8px;
+  width: var(--pet-size, 180px);
+  height: var(--pet-size, 180px);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  pointer-events: auto;
+  transform-origin: 50% 92%;
+  animation: breathe calc(2.6s / var(--speed, 1)) ease-in-out infinite;
+  cursor: pointer;
+}
+
+.pet img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 14px rgba(0, 0, 0, .28));
+  animation: blink calc(4.8s / var(--speed, 1)) infinite;
+}
+
+.walking .pet {
+  animation: walk calc(.55s / var(--speed, 1)) ease-in-out infinite;
+}
+
+.stage.entering .pet {
+  animation: enter calc(1s / var(--speed, 1)) cubic-bezier(.2, .95, .25, 1.1) both, walk calc(.55s / var(--speed, 1)) ease-in-out infinite;
+}
+
+.stage.leaving .pet {
+  animation: leave calc(.9s / var(--speed, 1)) ease-in both;
+}
+
+.turn-left .pet {
+  transform: scaleX(-1);
+}
+
+.bubble {
+  position: absolute;
+  right: calc(var(--pet-size, 180px) + 22px);
+  bottom: calc(var(--pet-size, 180px) * .64);
+  max-width: 190px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: #171717;
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .2);
+  font-size: 14px;
+  line-height: 1.25;
+  pointer-events: none;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  bottom: 15px;
+  border-width: 8px 0 8px 9px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(255, 255, 255, .95);
+}
+
+.chat {
+  position: absolute;
+  right: calc(var(--pet-size, 180px) + 22px);
+  bottom: 24px;
+  width: 250px;
+  height: 310px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(22, 22, 26, .94);
+  color: #f7f7f7;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .35);
+  pointer-events: auto;
+}
+
+.chat header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.chat button {
+  border: 0;
+  border-radius: 8px;
+  background: #f4c542;
+  color: #151515;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#closeChat {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+}
+
+.messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.msg {
+  max-width: 86%;
+  padding: 8px 9px;
+  border-radius: 10px;
+  line-height: 1.25;
+}
+
+.user {
+  align-self: flex-end;
+  background: #f4c542;
+  color: #161616;
+}
+
+.bot {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, .12);
+}
+
+#chatForm {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+#chatInput {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px;
+  outline: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.02, .985); }
+}
+
+@keyframes walk {
+  0%, 100% { transform: translateY(0) rotate(-2deg) scale(1.02, .98); }
+  50% { transform: translateY(-8px) rotate(2deg) scale(.98, 1.03); }
+}
+
+@keyframes enter {
+  from { translate: 120% 0; opacity: 0; }
+  to { translate: 0 0; opacity: 1; }
+}
+
+@keyframes leave {
+  from { translate: 0 0; opacity: 1; }
+  to { translate: 120% 0; opacity: 0; }
+}
+
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  94%, 96% { transform: scaleY(.92); }
+}

@@ -1,0 +1,31 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+  user-select: none;
+}
+
+#summon {
+  width: 58px;
+  height: 58px;
+  margin: 2px;
+  border: 2px solid rgba(244, 197, 66, .95);
+  border-radius: 50%;
+  background: rgba(19, 20, 25, .86);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .28);
+  cursor: grab;
+}
+
+#summon:active {
+  cursor: grabbing;
+}
+
+#summon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  pointer-events: none;
+}
