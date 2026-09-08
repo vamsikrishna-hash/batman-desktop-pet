@@ -140,6 +140,7 @@ function createPetWindow() {
     }
   });
   petWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+  petWindow.setAlwaysOnTop(Boolean(settings.alwaysOnTop), 'screen-saver');
   petWindow.loadFile(path.join(__dirname, 'renderer', 'pet.html'));
 }
 
@@ -160,6 +161,7 @@ function createSummonWindow() {
     }
   });
   summonWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+  summonWindow.setAlwaysOnTop(true, 'screen-saver');
   summonWindow.loadFile(path.join(__dirname, 'renderer', 'summon.html'));
 }
 
@@ -329,7 +331,7 @@ function summonPet(manual = false, openChat = false, forceWater = false, forceTa
   if (!message) return;
   const bounds = defaultPetBounds();
   petWindow.setBounds(bounds);
-  petWindow.setAlwaysOnTop(Boolean(settings.alwaysOnTop));
+  petWindow.setAlwaysOnTop(Boolean(settings.alwaysOnTop), 'screen-saver');
   petWindow.showInactive();
   petWindow.webContents.send('pet:summon', {
     message: message.text,
@@ -402,7 +404,7 @@ ipcMain.handle('settings:save', (_event, nextSettings) => {
   applyStartupSetting();
   updateTray();
   scheduleVisits();
-  petWindow?.setAlwaysOnTop(Boolean(settings.alwaysOnTop));
+  petWindow?.setAlwaysOnTop(Boolean(settings.alwaysOnTop), 'screen-saver');
   return { ok: true, hasApiKey: Boolean(getApiKey()) };
 });
 

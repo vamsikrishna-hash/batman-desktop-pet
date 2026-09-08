@@ -46,6 +46,7 @@ includesAll(main, [
   'setInterval(() => summonPet(false)',
   'setInterval(() => summonPet(false, false, true)',
   'taskTimer',
+  "'screen-saver'",
   "'tasks:add'",
   "'tasks:toggle'",
   "'tasks:remove'",
